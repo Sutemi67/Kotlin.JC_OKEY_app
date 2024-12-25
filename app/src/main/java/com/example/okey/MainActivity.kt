@@ -24,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -46,7 +47,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             OKEYTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -68,20 +68,19 @@ fun Okay() {
 
     var pl1 by remember { mutableStateOf("") }
     val pl1Null = pl1.toIntOrNull()?:0
-    //var round1 by remember { mutableStateOf(0)}
-    var sum1pl by remember { mutableStateOf(0) }
+    var sum1pl by remember { mutableIntStateOf(0) }
 
     var pl2 by remember { mutableStateOf("") }
     val pl2Null = pl2.toIntOrNull()?:0
-    var sum2pl by remember { mutableStateOf(0) }
+    var sum2pl by remember { mutableIntStateOf(0) }
 
     var pl3 by remember { mutableStateOf("") }
     val pl3Null = pl3.toIntOrNull()?:0
-    var sum3pl by remember { mutableStateOf(0) }
+    var sum3pl by remember { mutableIntStateOf(0) }
 
     var pl4 by remember { mutableStateOf("") }
     val pl4Null = pl4.toIntOrNull()?:0
-    var sum4pl by remember { mutableStateOf(0) }
+    var sum4pl by remember { mutableIntStateOf(0) }
 
     Column(Modifier.background(color = Color.LightGray)) {
         Column {
@@ -145,17 +144,6 @@ fun Okay() {
                         )
                     )
                 }
-                /*Button(
-                    onClick = {
-                        sum1pl -= pl1.toInt()
-                        pl1 = ""
-                    },
-                    Modifier
-                        .width(50.dp)
-                        .height(50.dp)
-                ) {
-                    Text(text = "-")
-                }*/
             }
         }
         Column {
@@ -217,17 +205,6 @@ fun Okay() {
                         )
                     )
                 }
-                /*Button(
-                    onClick = {
-                        sum2pl -= pl2.toInt()
-                        pl2 = ""
-                    },
-                    Modifier
-                        .width(50.dp)
-                        .height(50.dp)
-                ) {
-                    Text(text = "-")
-                }*/
             }
         }
         Column {
@@ -288,17 +265,6 @@ fun Okay() {
                             )
                         ))
                 }
-                /*Button(
-                    onClick = {
-                        sum3pl -= pl3.toInt()
-                        pl3 = ""
-                    },
-                    Modifier
-                        .width(50.dp)
-                        .height(50.dp)
-                ) {
-                    Text(text = "-")
-                }*/
             }
         }
         Column {
@@ -386,7 +352,7 @@ fun InputField(
 
 @Composable
 fun Rounds(){
-    var roundsCount by remember { mutableStateOf(0)}
+    var roundsCount by remember { mutableIntStateOf(0) }
     Divider(color = Color.Black, thickness = 1.dp)
     Column(
             horizontalAlignment = Alignment.CenterHorizontally,
