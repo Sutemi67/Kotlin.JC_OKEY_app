@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,7 +17,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -67,22 +67,29 @@ fun Okay() {
     var pl4Name by remember { mutableStateOf("") }
 
     var pl1 by remember { mutableStateOf("") }
-    val pl1Null = pl1.toIntOrNull()?:0
+    val pl1Null = pl1.toIntOrNull() ?: 0
     var sum1pl by remember { mutableIntStateOf(0) }
 
     var pl2 by remember { mutableStateOf("") }
-    val pl2Null = pl2.toIntOrNull()?:0
+    val pl2Null = pl2.toIntOrNull() ?: 0
     var sum2pl by remember { mutableIntStateOf(0) }
 
     var pl3 by remember { mutableStateOf("") }
-    val pl3Null = pl3.toIntOrNull()?:0
+    val pl3Null = pl3.toIntOrNull() ?: 0
     var sum3pl by remember { mutableIntStateOf(0) }
 
     var pl4 by remember { mutableStateOf("") }
-    val pl4Null = pl4.toIntOrNull()?:0
+    val pl4Null = pl4.toIntOrNull() ?: 0
     var sum4pl by remember { mutableIntStateOf(0) }
 
-    Column(Modifier.background(color = Color.LightGray)) {
+    Column(
+
+        modifier = Modifier
+            .background(color = Color.LightGray)
+            .fillMaxHeight(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Column {
             TextField(
                 value = pl1Name,
@@ -125,7 +132,7 @@ fun Okay() {
                     onClick = {
                         sum1pl += pl1Null
                         pl1 = ""
- //                       round1++
+                        //                       round1++
                     },
                     Modifier
                         .width(130.dp)
@@ -263,7 +270,8 @@ fun Okay() {
                                 offset = Offset(5.0f, 10.0f),
                                 blurRadius = 15f
                             )
-                        ))
+                        )
+                    )
                 }
             }
         }
@@ -323,95 +331,13 @@ fun Okay() {
                                 offset = Offset(5.0f, 10.0f),
                                 blurRadius = 15f
                             )
-                        ))
+                        )
+                    )
                 }
             }
         }
         Spacer(modifier = Modifier.height(10.dp))
         Rounds()
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun InputField(
-    value: String,
-    onValueChange: (String)->Unit,
-    keyboardOptions: KeyboardOptions,
-){
-    TextField(
-        value = value,
-        onValueChange = onValueChange,
-        keyboardOptions = keyboardOptions,
-        singleLine = true,
-        modifier = Modifier
-            .height(60.dp)
-            .width(80.dp)
-    )
-}
-
-@Composable
-fun Rounds(){
-    var roundsCount by remember { mutableIntStateOf(0) }
-    Divider(color = Color.Black, thickness = 1.dp)
-    Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-        Text(
-            text = "Раундов сыграно:",
-            fontSize = 30.sp,
-            style = TextStyle(
-                shadow = Shadow(
-                    color = Color.Gray,
-                    offset = Offset(5.0f, 10.0f),
-                    blurRadius = 10f
-                )
-            )
-        )
-        Row (horizontalArrangement = Arrangement.Center){
-            Button(
-                onClick = { roundsCount-- },
-                modifier = Modifier.shadow(15.dp, shape = CircleShape)
-            ) {
-                Text(
-                    text = "-",
-                    style = TextStyle(
-                        shadow = Shadow(
-                            color = Color.Black,
-                            offset = Offset(5.0f, 10.0f),
-                            blurRadius = 15f
-                        )
-                    ))
-            }
-            Text(
-                text = "$roundsCount",
-                fontSize = 32.sp,
-                style = TextStyle(
-                    shadow = Shadow(
-                        color = Color.Gray,
-                        offset = Offset(5.0f, 10.0f),
-                        blurRadius = 20f
-                    )
-                ),
-                modifier = Modifier
-                    .padding(30.dp,0.dp,30.dp,0.dp))
-            Button(
-                onClick = { roundsCount++ },
-                modifier = Modifier.shadow(15.dp, shape = CircleShape)
-            ){
-                Text(
-                    text = "+",
-                    style = TextStyle(
-                        shadow = Shadow(
-                            color = Color.Black,
-                            offset = Offset(5.0f, 10.0f),
-                            blurRadius = 15f
-                        )
-                    )
-                )
-            }
-        }
     }
 }
 
