@@ -21,7 +21,6 @@ fun InputField(
     onValueChange: (String) -> Unit,
     keyboardOptions: KeyboardOptions,
 ) {
-
     TextField(
         value = value,
         onValueChange = onValueChange,
