@@ -40,7 +40,7 @@ fun OkayPreview2() {
     pl4.toIntOrNull() ?: 0
     OKEYTheme {
         InputField(
-            value = "sdf",
+            value = "77",
             onValueChange = { pl4 = it },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
