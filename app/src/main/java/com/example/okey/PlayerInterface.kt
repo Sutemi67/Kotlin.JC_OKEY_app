@@ -24,6 +24,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -40,7 +41,7 @@ fun PlayerInterface() {
     Column {
         TextField(
             value = playerName,
-            label = { Text(text = "Имя игрока") },
+            label = { Text(stringResource(R.string.player_name)) },
             onValueChange = { playerName = it },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             singleLine = true,
@@ -85,7 +86,7 @@ fun PlayerInterface() {
                     .shadow(5.dp, shape = CircleShape)
             ) {
                 Text(
-                    text = "Добавить очки",
+                    text = stringResource(R.string.add_score),
                     textAlign = TextAlign.Center,
                     style = TextStyle(
                         shadow = Shadow(

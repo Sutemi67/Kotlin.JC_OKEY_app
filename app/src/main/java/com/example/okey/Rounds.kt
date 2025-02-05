@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -42,7 +43,7 @@ fun Rounds() {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxWidth()
     ) {
-        Text(text = "Раундов сыграно:", fontSize = 30.sp, style = textStyle)
+        Text(text = stringResource(R.string.rounds), fontSize = 30.sp, style = textStyle)
         Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
@@ -65,7 +66,7 @@ fun Rounds() {
                 modifier = Modifier
                     .shadow(15.dp, shape = CircleShape)
                     .height(40.dp),
-                ) {
+            ) {
                 Text(text = "+", fontSize = 20.sp, style = textStyle)
             }
         }

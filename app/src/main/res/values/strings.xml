@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">OKEY</string>
+    <string name="app_name" translatable="false">OKEY</string>
+    <string name="player_name">Player name</string>
+    <string name="add_score">Add score</string>
+    <string name="rounds">Rounds played</string>
+
 </resources>
